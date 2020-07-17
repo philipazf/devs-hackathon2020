@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -12,13 +13,55 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="css/signup.css" rel="stylesheet">
-  </head>
+    <link href="/css/profile.css" rel="stylesheet">
+</head>
 
-  <body>
-      <%= userName %>
-  </body>
+<body>
+    <div class="profile-page">
+        <div class="card user" style="width: 18rem;">
+            <img class="card-img-top"
+                src="https://3.bp.blogspot.com/-qDc5kIFIhb8/UoJEpGN9DmI/AAAAAAABl1s/BfP6FcBY1R8/s1600/BlueHead.jpg"
+                alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title"><%= userName %></h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <p class="card-text">Total Points: <%= userPoints %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4>Rewards</h4></li>
+                <li class="list-group-item">Sample Reward</li>
+                <li class="list-group-item">
+                    <div class="last"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="tasks">
+            <h3>Tasks</h3>
+            <div class="card w-100">
+                <div class="card-body">
+                    <h5 class="card-title">Task</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Done</a>
+                    <a href="#" class="btn btn-danger">Remove</a>
+                </div>
+            </div>
+        </div>
+        <div class="suggestions">
+            <h3>Suggestions</h3>
+            <div class="card w-100">
+                <div class="card-body">
+                    <h5 class="card-title">Task</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-success">Add Task</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>

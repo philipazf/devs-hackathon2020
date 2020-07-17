@@ -10,7 +10,7 @@ let currentId = 0;
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 app.get("/", function(req, res) {
     res.render("index");
@@ -36,7 +36,7 @@ app.post("/signup", function(req, res) {
     let name = req.body.name;
     let password = req.body.password;
 
-    let sql = "INSERT INTO appdatabase.users VALUES (" + nextId + ", \"" + name + "\", \"" + String(email) + "\", \"" + password + "\")";
+    let sql = "INSERT INTO appdatabase.users VALUES (" + nextId + ", \"" + name + "\", \"" + String(email) + "\", \"" + password + "\", 0)";
     let userTaskTable = "CREATE TABLE appdatabase.user" + nextId + " (id INT NOT NULL, name TEXT, description TEXT, PRIMARY KEY (id) )";
 
     db.query(sql, function(err, result) {
@@ -68,7 +68,7 @@ app.get("/user/:id", function(req, res) {
             throw err;
         }
         else if(req.params.id == currentId) {
-            res.render("profile", {userName: result[0].name});
+            res.render("profile", {userName: result[0].name, userPoints: result[0].points});
         }
         else {
             res.send("Login Error");
