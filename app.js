@@ -12,8 +12,9 @@ let email;
 let name;
 let password;
 let matchNames = ["Sahil", "Saad", "Sreeniketh", "Harpreet"];
-let skills = ["Skills: Piano, French", "Skills: Guitar, Banjo", "Skills: Violen, Mathematics", "Skills: Programming, Cooking"];
+let skills = ["Skills: Piano, French", "Skills: Guitar, Banjo", "Skills: Violen, Mathematics", "Skills: Python, Cooking"];
 let showMatches = [false, false, false, false];
+let myskills = [];
 
 app.set('view engine', 'ejs');
 
@@ -23,6 +24,7 @@ app.use(express.static(__dirname + "/public"));
 app.get("/", function (req, res) {
     res.render("index");
     userSkillArray = [];
+    myskills = [];
     showMatches = [false, false, false, false];
 });
 
@@ -96,7 +98,8 @@ app.get("/user/:id", function (req, res) {
             showMatches3: showMatches[2],
             showMatches4: showMatches[3],
             matchNames: matchNames,
-            skillsList: skills
+            skillsList: skills,
+            myskills: myskills
         });
 
     let sqlQueryMax = "SELECT MAX(id) AS id FROM appdatabase.user" + currentId;
@@ -157,6 +160,11 @@ app.post("/addskill",function(req, res) {
 app.post("/removeskill", function(req, res) {
     userSkillArray.pop();
     res.redirect("/user/" + currentId);
+});
+
+app.post("/addmyskill", function(req, res) {
+    let myskillname = req.body.myskillname;
+    myskills.push(myskillname);
 });
 
 app.listen(3000, function () {

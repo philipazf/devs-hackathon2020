@@ -17,9 +17,57 @@ html {
   .pricing-header {
     max-width: 700px;
   }
+
+  .topName {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: #FB5F3D;
+  }
   
+  .topsignupbtn {
+    background-color: #FB5F3D !important;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+  }
+
   .card-deck .card {
     min-width: 220px;
+  }
+
+  .mainText {
+    margin-left: 100px;
+    margin-top: 100px;
+    width: 500px;
+  }
+
+  .heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: #839AC5;
+  }
+
+  .quote {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 54px;
+    font-weight: 700;
+    line-height: 110%;
+    color: #003188;
+  }
+
+  .homeBody {
+    display: flex;
+  }
+
+  .imgattr {
+    padding-top: 100px;
+    text-align: right;
+  }
+
+  img {
+    width: 600px;
+    padding-top: 20px;
+    padding-left: 30px;
   }
 
   .border-top { border-top: 1px solid #e5e5e5; }

@@ -6,23 +6,24 @@ body {
 body {
   display: -ms-flexbox;
   display: -webkit-box;
-  display: flex;
+  /* display: flex; */
   -ms-flex-align: center;
   -ms-flex-pack: center;
   -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
+  /* -webkit-box-pack: center; */
+  justify-content: left;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #f5f5f5;
+  background-color: #FFFFFF;
 }
 
 .form-signin {
   width: 100%;
-  max-width: 330px;
+  max-width: 530px;
   padding: 15px;
-  margin: 0 auto;
+  padding-left: 200px;
+  /* margin: 0 auto; */
 }
 .form-signin .checkbox {
   font-weight: 400;
@@ -50,4 +51,21 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.loginName {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-align: left;
+    color: #FB5F3D;
+}
+
+.imgattr {
+  position: absolute;
+  bottom: 1px;
+  right: 4px;;
+}
+
+.loginimg {
+  width: 600px;
 }

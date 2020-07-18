@@ -12,6 +12,11 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/98dbe40773.js" crossorigin="anonymous"></script>
+
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -21,23 +26,23 @@
 </head>
 
 <body>
-  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-    <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
+  <!-- <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Skill Exchange</h5>
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark" href="#">About Us</a>
       <a class="p-2 text-dark" href="#">Contact</a>
     </nav>
     <a class="btn btn-outline-primary" href="#">Log Out</a>
-  </div>
+  </div> -->
     <div class="container profile-page">
-        <div class="card user" style="width: 20rem;">
+        <!-- <div class="card user" style="width: 18rem;">
             <img class="card-img-top"
                 src="https://3.bp.blogspot.com/-qDc5kIFIhb8/UoJEpGN9DmI/AAAAAAABl1s/BfP6FcBY1R8/s1600/BlueHead.jpg"
                 alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title"><%= userName %></h4>
                 <p class="card-text"><%= userEmail %></p>
-                <p class="card-text">Total Points: 4567</p>
+                <p class="card-text">Total Points: 0</p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><h4>Rewards</h4></li>
@@ -46,12 +51,51 @@
                     <div class="last"></div>
                 </li>
             </ul>
+        </div> -->
+        <div class="sidebar" style="width: 3rem;">
+          <div class="logo">SE</div>
+        </div>
+        <div class="side" style="width: 23rem;">
+          <button type="button" class="btn btn-outline-primary sidebtn btn-sm">Log Out</button>
+          <img class="sideimg"
+              src="https://3.bp.blogspot.com/-qDc5kIFIhb8/UoJEpGN9DmI/AAAAAAABl1s/BfP6FcBY1R8/s1600/BlueHead.jpg"
+              alt="Card image cap">
+          <div class="sidebody">
+              <h4 class="sidetitle"><%= userName %></h4> 
+              <div class="linkbar">
+                <i class="fas fa-envelope-open"></i>
+                <i class="fas fa-user-friends"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+              <!-- <h6 class="sidetext"><%= userEmail %></h6>
+              <h6 class="sidetext">Total Points: 0</h6> -->
+              <div class="myskills">
+                <% for(let i = 0; i < myskills.length; i++) { %>
+                <div class="myskillname1"><%= myskills[i] %></div>
+                <% } %>
+                <div class="myskillinput"></div>
+                <form action="/addmyskill" method="POST">
+                  <div class="form-group formmyskill">
+                    <input type="text" name="myskillname" class="form-control" id="exampleFormControlInput1"
+                      placeholder="Enter your skills">
+                    <a type="submit" class="btn btn-success btnmyskill">Add skill</a>
+                  </div>
+                </form>
+              </div>
+          </div>
+          <!-- <ul class="list-group list-group-flush">
+              <li class="list-group-item"><h4>Rewards</h4></li>
+              <li class="list-group-item">Sample Reward</li>
+              <li class="list-group-item">
+                  <div class="last"></div>
+              </li>
+          </ul> -->
         </div>
         <div class="tasks">
-            <h3>My Skills</h3>
+            <h3>I want to learn...</h3>
             <div class="card">
               <% for (let i = 0; i < userSkills.length; i++) { %>
-                <div class="card-body userskillcard">
+                <div class="card-body userskillcardMain">
                     <h5 class="card-title skilltitle"><%= userSkills[i] %></h5>
                   </div>
               <% } %>
@@ -73,36 +117,40 @@
                 <% if (showMatches1 == true) { %>
                   <div class="card-body userskillcard">
                     <div class="card-body">
-                      <h5 class="card-title"><%= matchNames[0] %></h5>
-                      <p class="card-text"><%= skillsList[0] %></p>
-                      <a href="#" class="btn btn-success">Contact</a>
+                      <img class="userimg" src="https://media-exp1.licdn.com/dms/image/C5603AQHWEVViePXL6g/profile-displayphoto-shrink_200_200/0?e=1600300800&v=beta&t=ARivl2zsp1anoiDolQpKINTH9mESzI4m8_hI24suZqY">
+                      <h5 class="card-title usercardname"><%= matchNames[0] %></h5>
+                      <p class="card-text userskillsList"><%= skillsList[0] %></p>
+                      <a href="#" class="btn btn-success userbtn">Contact</a>
                     </div>
                   </div>
                 <% } %>
                 <% if (showMatches2 == true) { %>
                   <div class="card-body userskillcard">
                     <div class="card-body">
-                      <h5 class="card-title"><%= matchNames[1] %></h5>
-                      <p class="card-text"><%= skillsList[1] %></p>
-                      <a href="#" class="btn btn-success">Contact</a>
+                      <img class="userimg2" src="https://scontent.fakl2-1.fna.fbcdn.net/v/t1.0-1/p160x160/82901512_3044874952212811_6142028877976829952_o.jpg?_nc_cat=107&_nc_sid=dbb9e7&_nc_ohc=EEsvztFgt8oAX8sZ4uZ&_nc_ht=scontent.fakl2-1.fna&_nc_tp=6&oh=93e17faf10495b7d18589ec6f7f883b9&oe=5F36C015">
+                      <h5 class="card-title usercardname2"><%= matchNames[1] %></h5>
+                      <p class="card-text userskillsList2"><%= skillsList[1] %></p>
+                      <a href="#" class="btn btn-success userbtn2">Contact</a>
                     </div>
                   </div>
                 <% } %>
                 <% if (showMatches3 == true) { %>
                   <div class="card-body userskillcard">
                     <div class="card-body">
-                      <h5 class="card-title"><%= matchNames[2] %></h5>
-                      <p class="card-text"><%= skillsList[2] %></p>
-                      <a href="#" class="btn btn-success">Contact</a>
+                      <img class="userimg3" src="https://media-exp1.licdn.com/dms/image/C5603AQHTydArH_rFmw/profile-displayphoto-shrink_200_200/0?e=1600300800&v=beta&t=8XzWjdXsImrgFdyBDpoKFEtO_bKnmoESLeVt4PjaxBI">
+                      <h5 class="card-title usercardname3"><%= matchNames[2] %></h5>
+                      <p class="card-text userskillsList3"><%= skillsList[2] %></p>
+                      <a href="#" class="btn btn-success userbtn3">Contact</a>
                     </div>
                   </div>
                 <% } %>
                 <% if (showMatches4 == true) { %>
                   <div class="card-body userskillcard">
                     <div class="card-body">
-                      <h5 class="card-title"><%= matchNames[3] %></h5>
-                      <p class="card-text"><%= skillsList[3] %></p>
-                      <a href="#" class="btn btn-success">Contact</a>
+                      <img class="userimg4" src="https://media-exp1.licdn.com/dms/image/C5603AQHDs8JV3rVgxQ/profile-displayphoto-shrink_200_200/0?e=1600300800&v=beta&t=6ByHM07Mk-y2M0jLTgSoaXpRahq71TuRoABi8J0XZ1k">
+                      <h5 class="card-title usercardname4"><%= matchNames[3] %></h5>
+                      <p class="card-text userskillsList4"><%= skillsList[3] %></p>
+                      <a href="#" class="btn btn-success userbtn4">Contact</a>
                     </div>
                   </div>
                 <% } %>
