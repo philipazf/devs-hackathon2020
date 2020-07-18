@@ -89,15 +89,6 @@ app.get("/user/:id", function (req, res) {
         }
         else {
             nextSkillId = result[0].id + 1;
-            let getUserSkills = "SELECT * FROM appdatabase.user" + currentId;
-            userSkillArray = [];
-            db.query(getUserSkills, function (err, result) {
-                for(let i = 1; i < result.length; i++) {
-                    userSkillArray.push(result[i].name);
-                    // res.render("profile", {userSkills: userSkillArray});
-                }
-                console.log(userSkillArray);
-            });
         }
     });
 
@@ -118,6 +109,16 @@ app.post("/addskill",function(req, res) {
             throw err;
         }
         else {
+
+            let getUserSkills = "SELECT * FROM appdatabase.user" + currentId;
+            userSkillArray = [];
+            db.query(getUserSkills, function (err, result) {
+                for(let i = 1; i < result.length; i++) {
+                    userSkillArray.push(result[i].name);
+                }
+                console.log(userSkillArray);
+            });
+
             res.redirect("/user/" + currentId);
         }
     });
