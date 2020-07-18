@@ -7,6 +7,7 @@ const app = express();
 let nextId = 0;
 let currentId = 0;
 let nextSkillId = 0;
+let userSkillArray = [];
 
 app.set('view engine', 'ejs');
 
@@ -88,7 +89,14 @@ app.get("/user/:id", function (req, res) {
         }
         else {
             nextSkillId = result[0].id + 1;
-            console.log(result[0].id);
+            let getUserSkills = "SELECT * FROM appdatabase.user" + currentId;
+            userSkillArray = [];
+            db.query(getUserSkills, function (err, result) {
+                for(let i = 1; i < result.length; i++) {
+                    userSkillArray.push(result[i].name);
+                }
+                console.log(userSkillArray);
+            });
         }
     });
 
@@ -109,8 +117,6 @@ app.post("/addskill",function(req, res) {
             throw err;
         }
         else {
-            console.log("fsgfdsgsdf");
-            console.log(result);
             res.redirect("/user/" + currentId);
         }
     });
