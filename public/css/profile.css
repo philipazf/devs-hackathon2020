@@ -30,3 +30,19 @@ h3 {
 .container {
     display: inline-flex;
 }
+
+.userskillcard {
+    border-bottom: solid #DFDFDF 3px;
+    display: flex;
+}
+
+.card-body {
+    padding: 0.8rem;
+}
+/* .skilltitle {
+    margin: auto;
+} */
+
+/* .removebutton {
+    margin-left: ;
+} */

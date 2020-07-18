@@ -8,6 +8,12 @@ let nextId = 0;
 let currentId = 0;
 let nextSkillId = 0;
 let userSkillArray = [];
+let email;
+let name;
+let password;
+let matchNames = ["Sahil", "Saad", "Sreeniketh", "Harpreet"];
+let skills = ["Skills: Piano, French", "Skills: Guitar, Banjo", "Skills: Violen, Mathematics", "Skills: Programming, Cooking"];
+let showMatches = [false, false, false, false];
 
 app.set('view engine', 'ejs');
 
@@ -16,6 +22,8 @@ app.use(express.static(__dirname + "/public"));
 
 app.get("/", function (req, res) {
     res.render("index");
+    userSkillArray = [];
+    showMatches = [false, false, false, false];
 });
 
 app.get("/signup", function (req, res) {
@@ -34,9 +42,9 @@ app.get("/signup", function (req, res) {
 });
 
 app.post("/signup", function (req, res) {
-    let email = req.body.email;
-    let name = req.body.name;
-    let password = req.body.password;
+    email = req.body.email;
+    name = req.body.name;
+    password = req.body.password;
 
     let sql = "INSERT INTO appdatabase.users VALUES (" + nextId + ", \"" + name + "\", \"" + String(email) + "\", \"" + password + "\")";
     let userTaskTable = "CREATE TABLE appdatabase.user" + nextId + " (id INT NOT NULL, name TEXT, description TEXT, PRIMARY KEY (id) )";
@@ -79,7 +87,17 @@ app.get("/login", function (req, res) {
 
 app.get("/user/:id", function (req, res) {
     if(req.params.id == currentId) {
-        res.render("profile", {userSkills: userSkillArray});
+        res.render("profile", {
+            userSkills: userSkillArray, 
+            userName: name, 
+            userEmail: email, 
+            showMatches1: showMatches[0],
+            showMatches2: showMatches[1],
+            showMatches3: showMatches[2],
+            showMatches4: showMatches[3],
+            matchNames: matchNames,
+            skillsList: skills
+        });
 
     let sqlQueryMax = "SELECT MAX(id) AS id FROM appdatabase.user" + currentId;
 
@@ -116,12 +134,29 @@ app.post("/addskill",function(req, res) {
                 for(let i = 1; i < result.length; i++) {
                     userSkillArray.push(result[i].name);
                 }
+                if(userSkillArray.length == 1) {
+                    showMatches[0] = true;
+                }
+                else if(userSkillArray.length == 2) {
+                    showMatches[1] = true;
+                }
+                else if(userSkillArray.length == 3) {
+                    showMatches[2] = true;
+                }
+                else {
+                    showMatches[3] = true;
+                }
                 console.log(userSkillArray);
             });
 
             res.redirect("/user/" + currentId);
         }
     });
+});
+
+app.post("/removeskill", function(req, res) {
+    userSkillArray.pop();
+    res.redirect("/user/" + currentId);
 });
 
 app.listen(3000, function () {
