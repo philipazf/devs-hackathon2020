@@ -21,16 +21,16 @@
 </head>
 
 <body>
-    <div class="profile-page">
-        <div class="card user" style="width: 18rem;">
+    <div class="container profile-page">
+        <div class="card user" style="width: 20rem;">
             <img class="card-img-top"
                 src="https://3.bp.blogspot.com/-qDc5kIFIhb8/UoJEpGN9DmI/AAAAAAABl1s/BfP6FcBY1R8/s1600/BlueHead.jpg"
                 alt="Card image cap">
             <div class="card-body">
-                <h4 class="card-title"><%= userName %></h4>
+                <h4 class="card-title">Card title</h4>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                     card's content.</p>
-                <p class="card-text">Total Points: <%= userPoints %></p>
+                <p class="card-text">Total Points: 4567</p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><h4>Rewards</h4></li>
@@ -41,19 +41,41 @@
             </ul>
         </div>
         <div class="tasks">
-            <h3>Tasks</h3>
-            <div class="card w-100">
+            <h3>My Skills</h3>
+            <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Task</h5>
+                    <h5 class="card-title">Skill</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Done</a>
-                    <a href="#" class="btn btn-danger">Remove</a>
+                </div>
+                <div class="card-body">
+
+                    <form action="/addskill" method="POST">
+                        <div class="form-group">
+                          <input name="skillname" type="text" class="form-control" id="Skill" placeholder="Add Skill">
+                        </div>
+                        <button type="submit" class="btn btn-success">Add Skill</button>
+                    </form>
+
                 </div>
             </div>
         </div>
         <div class="suggestions">
             <h3>Suggestions</h3>
-            <div class="card w-100">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Task</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-success">Add Task</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Task</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-success">Add Task</a>
+                </div>
+            </div>
+            <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Task</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
