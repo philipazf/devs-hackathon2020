@@ -79,7 +79,7 @@ app.get("/login", function (req, res) {
 
 app.get("/user/:id", function (req, res) {
     if(req.params.id == currentId) {
-        res.render("profile");
+        res.render("profile", {userSkills: userSkillArray});
 
     let sqlQueryMax = "SELECT MAX(id) AS id FROM appdatabase.user" + currentId;
 
@@ -94,6 +94,7 @@ app.get("/user/:id", function (req, res) {
             db.query(getUserSkills, function (err, result) {
                 for(let i = 1; i < result.length; i++) {
                     userSkillArray.push(result[i].name);
+                    // res.render("profile", {userSkills: userSkillArray});
                 }
                 console.log(userSkillArray);
             });

@@ -43,10 +43,12 @@
         <div class="tasks">
             <h3>My Skills</h3>
             <div class="card">
+              <% for (let i = 0; i < userSkills.length; i++) { %>
                 <div class="card-body">
-                    <h5 class="card-title">Skill</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title"><%= userSkills[i] %></h5>
+                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
                 </div>
+              <% } %>
                 <div class="card-body">
 
                     <form action="/addskill" method="POST">
